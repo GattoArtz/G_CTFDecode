@@ -1,0 +1,8 @@
+Input: ZmxhZ3t3ZWJfdGVzdH0=
+Flag format (ex: flag{...}) : flag{...}
+
+Recommendation: flag{web_test}  (Score:  135.71428571428572 %)
+
+Hex:  Invalid Hex  (Score:  81.81818181818183 %)
+Base64:  flag{web_test}  (Score:  135.71428571428572 %)
+URL Decoded:  ZmxhZ3t3ZWJfdGVzdH0=  (Score:  90.0 %)
