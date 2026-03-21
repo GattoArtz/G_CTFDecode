@@ -60,8 +60,7 @@ hex_score = (len(display_hex) - repr(display_hex).count('\\') ) / len(display_he
 b64_score = (len(display_b64) - repr(display_b64).count('\\') ) / len(display_b64) * 100
 url_score = (len(display_url) - repr(display_url).count('\\') ) / len(display_url) * 100
 
-print("debug",len(display_url))
-print("debug",repr(display_url).count('\''))
+
 
 
 
