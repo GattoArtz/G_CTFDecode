@@ -1,16 +1,32 @@
 #!/usr/bin/env python3
 import base64
 import urllib.parse
+import re  # 必須！
 
 ## Input
-print("Input: ", end="")
-input_str = input()
-if input_str == "":
-    print("No input provided. Exiting.")
-    exit()
+while True:
+    print("Input: ", end="")
+    input_str = input()
+    if not input_str:
+        print("No input provided. Exiting.")
+    else:
+         break
 
-print("Flag format (ex: flag{...}) : ", end="")
-flag_format = input().split("...")[0]
+## Flag format input with validation
+pattern = r"^flag\{.+\}$"
+
+while True:
+    print("Flag format (ex: flag{...}) : ", end="")
+    raw_format = input()
+    
+    # re.fullmatch で入力全体がパターンに一致するかチェック
+    if re.fullmatch(pattern, raw_format):
+        # 正しい形式なら、解析用に "flag{" などの接頭辞を取得
+        flag_format = raw_format.split("{")[0] + "{"
+        break
+    else:
+        # 形式が違う場合は突き返す
+        print(f"[!] Error: '{raw_format}' is invalid. Please use 'flag{{...}}' format.")
 
 
 ## Decode
