@@ -7,7 +7,7 @@ CTF用スコアリング付きのHex , Base64 , URL Encoding変換ツール
 ※フラグフォーマットを入力することでフラグフォーマットに沿ったデコード結果にスコアが加算されます<br>
 
 ## 使い方
-・python script.py<br>
+・python g_ctfdecode.py<br>
 ・Input: と聞かれるのでエンコードされた文字列を入力<br>
 ・Flag format: と聞かれるのであれば"フラグ形式{...}"の形でフラグフォーマットを入力
 
