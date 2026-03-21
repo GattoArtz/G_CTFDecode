@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import base64
 import urllib.parse
-import re  # 必須！
+import re 
 
 ## Input
 while True:
@@ -13,20 +13,20 @@ while True:
          break
 
 ## Flag format input with validation
-pattern = r"^flag\{.+\}$"
+pattern = r"^.+\{.*\}$"
 
 while True:
     print("Flag format (ex: flag{...}) : ", end="")
     raw_format = input()
     
-    # re.fullmatch で入力全体がパターンに一致するかチェック
-    if re.fullmatch(pattern, raw_format) or raw_format == "":
-        # 正しい形式なら、解析用に "flag{" などの接頭辞を取得
-        flag_format = raw_format.split("{")[0] + "{"
+    if re.fullmatch(pattern, raw_format):
+        # "{" より前の部分（接頭辞）を取り出して、"{" を付ける
+        # 例: "CTF{...}" -> "CTF{"
+        flag_prefix = raw_format.split("{")[0] + "{"
+        flag_format = flag_prefix
         break
     else:
-        # 形式が違う場合は突き返す
-        print(f"[!] Error: '{raw_format}' is invalid. Please use 'flag{{...}}' format.")
+        print(f"[!] Error: '{raw_format}' is invalid. Please use 'prefix{{...}}' format.")
 
 
 ## Decode
@@ -56,9 +56,13 @@ except Exception:
 
 
 ## Scoring
-hex_score = (len(display_hex) - repr(display_hex).count('\'') ) / len(display_hex) * 100
-b64_score = (len(display_b64) - repr(display_b64).count('\'') ) / len(display_b64) * 100
-url_score = (len(display_url) - repr(display_url).count('\'') ) / len(display_url) * 100
+hex_score = (len(display_hex) - repr(display_hex).count('\\') ) / len(display_hex) * 100
+b64_score = (len(display_b64) - repr(display_b64).count('\\') ) / len(display_b64) * 100
+url_score = (len(display_url) - repr(display_url).count('\\') ) / len(display_url) * 100
+
+print("debug",len(display_url))
+print("debug",repr(display_url).count('\''))
+
 
 
 
@@ -87,6 +91,12 @@ else:
     if "}" in display_url:
             url_score += 25
 
+if display_hex == "Invalid Hex":
+    hex_score = 0
+if display_b64 == "Invalid Base64":
+    b64_score = 0
+if display_url == "Invalid URL Encoding":
+    url_score = 0
 
 def max_score(a, b, c):
     if a >= b and a >= c:
