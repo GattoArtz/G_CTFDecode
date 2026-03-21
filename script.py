@@ -20,7 +20,7 @@ while True:
     raw_format = input()
     
     # re.fullmatch で入力全体がパターンに一致するかチェック
-    if re.fullmatch(pattern, raw_format):
+    if re.fullmatch(pattern, raw_format) or raw_format == "":
         # 正しい形式なら、解析用に "flag{" などの接頭辞を取得
         flag_format = raw_format.split("{")[0] + "{"
         break
