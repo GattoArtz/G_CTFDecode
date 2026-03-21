@@ -1,8 +1,11 @@
-Input: ZmxhZ3t3ZWJfdGVzdH0=
+python g_ctfdecode.py
+Input: 666c61677b7765625f746573747d
 Flag format (ex: flag{...}) : flag{...}
+debug 28
+debug 2
 
-Recommendation: flag{web_test}  (Score:  135.71428571428572 %)
+Recommendation: flag{web_test}  (Score:  150.0 %)
 
-Hex:  Invalid Hex  (Score:  81.81818181818183 %)
-Base64:  flag{web_test}  (Score:  135.71428571428572 %)
-URL Decoded:  ZmxhZ3t3ZWJfdGVzdH0=  (Score:  90.0 %)
+Hex:  flag{web_test}  (Score:  150.0 %)
+Base64:  b'\xeb\xae\x9c\xeb^\xbb\xed\xbe\xfb\xeb\x9e\xb6\xe5\xfe\xf8\xeb\x9e\xf7\xef\x8e\xdd'  (Score:  52.38095238095239 %)
+URL Decoded:  666c61677b7765625f746573747d  (Score:  100.0 %)
