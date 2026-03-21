@@ -1,4 +1,4 @@
-# Decode-for-CTF
+# G_CTFDecode
 CTF用スコアリング付きのHex , Base64 , URL Encoding変換ツール
 
 ## できること
