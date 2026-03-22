@@ -25,6 +25,11 @@ while True:
         flag_prefix = raw_format.split("{")[0] + "{"
         flag_format = flag_prefix
         break
+        
+    elif raw_format == "":
+        flag_format = ""
+        break
+        
     else:
         print(f"[!] Error: '{raw_format}' is invalid. Please use 'prefix{{...}}' format.")
 
